@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie/screen/addScreen/widgets/card_and_form.dart';
 import 'package:movie/screen/homeScreen/home_screen.dart';
+import 'package:movie/screen/loginScreen/widgets/name_and_inputText.dart';
 
 class AddScreen extends StatelessWidget {
    AddScreen({Key? key}) : super(key: key);
@@ -23,26 +25,32 @@ class AddScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Add'),
       ),
-      body: Column(
-        children:  <Widget>[
-          const SizedBox(
-            height: 50,
-          ),
-          ListView.builder(
-              itemCount: lsBirthDay.length,
-              itemBuilder: (context, index){
-                return Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    children: const <Widget>[
+      body:  ListView(
+        children:  <Widget>[Center(
+          child: Column(
+                  children: const   <Widget>[
+                     SizedBox(
+                      height: 80.0,
+                    ),
+                     CircleAvatar(
+                      radius: 100.0,
+                      backgroundImage: NetworkImage('https://img.freepik.com/free-vector/detailed-birthday-lettering_52683-58875.jpg?w=2000'),
+                    ),
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: CardAndForm(
+                            title: 'Favourite Movies',
+                            hintText: 'Enter Your Favourite Movies',
+                           feedBackTitle: 'One Line of this Movie',
+                        ),
+                      )
+                  ],
+                ),
+        ),
+    ]
+      )
 
-                    ],
-                  ),
-                );
-              },
-          )
-        ],
-      ),
+
     );
   }
 }
